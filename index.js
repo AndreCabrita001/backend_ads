@@ -22,7 +22,9 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 
-app.use("/adsget", adGetRoute);
+app.get("/adsget", function(req, res){
+    res.send("Hello World");
+});
 
 app.use("/adsgetbyid", adGetByIdRoute);
 
