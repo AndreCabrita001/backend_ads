@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Ad = require("./models/Ad");
+
 const PORT = process.env.PORT || 3000;
 
 const adGetRoute = require("./routes/adsget");
@@ -22,22 +22,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 
-// app.use("/adsget", adGetRoute);
-
-app.get("/", async(req, res, next) =>{
-    Ad.find()
-    .then(result =>{
-        res.status(200).json({
-            adData: result
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error:err
-        })
-    });
-});
+app.use("/adsget", adGetRoute);
 
 app.use("/adsgetbyid", adGetByIdRoute);
 
