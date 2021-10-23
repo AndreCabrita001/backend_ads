@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+const PORT = process.env.PORT || 3000;
+
 const adGetRoute = require("./routes/adsget");
 
 const adGetByIdRoute = require("./routes/adsgetbyid");
@@ -30,6 +32,6 @@ app.use("/api/adsput", adPutRoute);
 
 app.use("/api/adsdelete", adDeleteRoute);
 
-app.listen(process.env.PORT || 5000, () =>{
+app.listen(PORT, () =>{
     console.log("Backend Server Running...")
 });
