@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 
-router.get("/adsget", async(req, res, next) =>{
+app.get("/adsget", async(req, res, next) =>{
     Ad.find()
     .then(result =>{
         res.status(200).json({
