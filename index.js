@@ -24,7 +24,7 @@ app.use(express.json());
 
 // app.use("/adsget", adGetRoute);
 
-app.get("/adsget", async(req, res, next) =>{
+app.get("/", async(req, res, next) =>{
     Ad.find()
     .then(result =>{
         res.status(200).json({
