@@ -22,15 +22,15 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 
-app.use("/api/adsget", adGetRoute);
+app.use("/adsget", adGetRoute);
 
-app.use("/api/adsgetbyid", adGetByIdRoute);
+app.use("/adsgetbyid", adGetByIdRoute);
 
-app.use("/api/adspost", adPostRoute);
+app.use("/adspost", adPostRoute);
 
-app.use("/api/adsput", adPutRoute);
+app.use("/adsput", adPutRoute);
 
-app.use("/api/adsdelete", adDeleteRoute);
+app.use("/adsdelete", adDeleteRoute);
 
 app.listen(PORT, () =>{
     console.log("Backend Server Running...")
