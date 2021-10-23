@@ -22,8 +22,19 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 
-app.get("/adsget", function(req, res){
-    res.send("Hello World");
+router.get("/adsget", async(req, res, next) =>{
+    Ad.find()
+    .then(result =>{
+        res.status(200).json({
+            adData: result
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    });
 });
 
 app.use("/adsgetbyid", adGetByIdRoute);
