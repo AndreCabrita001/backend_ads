@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
+const Ad = require("./models/Ad");
 const PORT = process.env.PORT || 3000;
 
 const adGetRoute = require("./routes/adsget");
